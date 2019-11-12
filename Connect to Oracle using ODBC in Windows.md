@@ -5,9 +5,9 @@
 2. Add the connection string on Tnsnames.ora file
 3. To configure a user DSN (Data Service Names)
 
-* From **Start Menu** open 'odbc' either 64 or 32 bit depend on the device's properties. (Can be checked by right-clicking on **My Computer**)
+* From **Start Menu** open 'odbc' either 64 or 32 bit depend on the device's configuration. (Can be checked by right-clicking on **My Computer**)
 * Choose to add new DSN using Oracle driver
-* Naming the DSN up to user's convenience
+* Naming the DSN up to user's convenience and choose the corresponding TnS name
 
 ## In Python
 
