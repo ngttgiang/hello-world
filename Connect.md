@@ -15,6 +15,8 @@
 2. (Optional) In order to mask the password, can install and load ```getpass``` package
 
 ```{python code}
+import pyodbc
+import getpass
 
 def connect2Oracle(DSN_name):
   username = getpass.getpass('Username')
@@ -25,4 +27,21 @@ def connect2Oracle(DSN_name):
   cursor = connection.cursor()
   
   return connection, cursor
+```
+
+3. Execute SQL agaist Oracle db from Python
+
+```
+import pandas as pd
+
+connection, cursor = connect2Oracle('test_DSN')
+sql = "Select col1, col2 from table"
+
+# get result into a pandas dataframe 
+result = pd.read_sql(sql, connection)
+
+#or just fetch the result
+cursor.execute(sql)
+cursor.fetchall()
+
 ```
