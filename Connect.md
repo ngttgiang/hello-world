@@ -1,6 +1,6 @@
 # Connect to Oracle using ODBC in Windows
 
-## Confifure local device
+## Confifure in local device
 1. To install Oracle Client on the device 
 2. Add the connection string on Tnsnames.ora file
 3. To configure a user DSN (Data Service Names)
@@ -9,7 +9,7 @@
 * Choose to add new DSN using Oracle driver
 * Naming the DSN up to user's convenience
 
-## Python
+## In Python
 
 1. Install/ load ```pyodbc``` package
 2. (Optional) In order to mask the password, can install and load ```getpass``` package
