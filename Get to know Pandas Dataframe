@@ -1,0 +1,415 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Get to know Pandas Dataframe.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ngttgiang/hi-python/blob/master/Get%20to%20know%20Pandas%20Dataframe\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "MPbpOXDYWdsZ",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "import pandas as pd"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "wf0RSy79VcFK",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Create and add data to DataFrame**\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "89iijENCVh-q",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#I. create an empty dataframe\n",
+        "data = pd.DataFrame()"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "R6UCsAyPVinQ",
+        "colab_type": "code",
+        "outputId": "39dcfc13-b93c-4c06-a996-8389e1ccb99d",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 204
+        }
+      },
+      "source": [
+        "#II. create a dataframe from existing lists\n",
+        "\n",
+        "## 1. create lists\n",
+        "number = [i for i in range(9)]\n",
+        "letter = [i for i in 'ListOfString'][0:9]\n",
+        "\n",
+        "## 2. adding lists to an existing dataframe, each list is a column\n",
+        "data['NUMBER'] = number\n",
+        "data['LETTER'] = letter\n",
+        "data.head()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>NUMBER</th>\n",
+              "      <th>LETTER</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>0</td>\n",
+              "      <td>L</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>1</td>\n",
+              "      <td>i</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2</td>\n",
+              "      <td>s</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>3</td>\n",
+              "      <td>t</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>4</td>\n",
+              "      <td>O</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   NUMBER LETTER\n",
+              "0       0      L\n",
+              "1       1      i\n",
+              "2       2      s\n",
+              "3       3      t\n",
+              "4       4      O"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hRSnrvSaXi6O",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#III. create a dataframe from dictionary\n",
+        "\n",
+        "## data to put into dataframe\n",
+        "number = [i for i in range(9)]\n",
+        "letter = [i for i in 'listOfString'][0:9]\n",
+        "## create dataframe using dictionary\n",
+        "data = pd.DataFrame(dict(Numbers = number, Letters = letter))\n",
+        "\n",
+        "### or\n",
+        "\n",
+        "dictionary = {'Numbers': number, 'Letters': letter}\n",
+        "data = pd.DataFrame(dictionary)\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "HVcRuG-hgLAZ",
+        "colab_type": "text"
+      },
+      "source": [
+        "*Because dataframe is created based on these methods, dataframe is basically a dictionary and each's column is actually a list.*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "O7F9oam-VpHM",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Join 2 DataFrames**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "T1VQczT6VtqO",
+        "colab_type": "code",
+        "outputId": "90a5f4a6-0f7d-4471-cd12-93cf5a770677",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 204
+        }
+      },
+      "source": [
+        "#I. exact match\n",
+        "data2 = pd.DataFrame(dict(words = ['hello','like','day'], char = ['h', 'l', 'd']))\n",
+        "merged = data.merge(data2, how='left', left_on= 'Letters', right_on='char')\n",
+        "merged.head()"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Numbers</th>\n",
+              "      <th>Letters</th>\n",
+              "      <th>words</th>\n",
+              "      <th>char</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>0</td>\n",
+              "      <td>l</td>\n",
+              "      <td>like</td>\n",
+              "      <td>l</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>1</td>\n",
+              "      <td>i</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2</td>\n",
+              "      <td>s</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>3</td>\n",
+              "      <td>t</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>4</td>\n",
+              "      <td>O</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   Numbers Letters words char\n",
+              "0        0       l  like    l\n",
+              "1        1       i   NaN  NaN\n",
+              "2        2       s   NaN  NaN\n",
+              "3        3       t   NaN  NaN\n",
+              "4        4       O   NaN  NaN"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "vMQI5-ycVtx6",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "#II. fuzzy match\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Ak9BnGnrVuAq",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Add a column to DataFrame**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "c_8Lrta3V0iY",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8Ksqlt5rWFji",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Remove a column from DataFrame**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Z6Z-MDZ7WLm3",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "w855V_BcWMmk",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Append a row to DataFrame**\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PG4UAALTWRUg",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "04C0iheHWRtz",
+        "colab_type": "text"
+      },
+      "source": [
+        "**Renove a row from DataFrame**"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UIxf1LS5WXJl",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
