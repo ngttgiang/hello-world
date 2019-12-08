@@ -2,7 +2,10 @@
 
 ## Confifure in local device
 1. To install Oracle Client on the device 
+  -> I.e for Oracle 12c, download Oracle Database Client from: https://www.oracle.com/database/technologies/database12c-win64-downloads.html
+  
 2. Add the connection string on Tnsnames.ora file
+  -> what is the connection string and how to get it: https://gerardnico.com/db/oracle/connect_descriptor
 3. To configure a user DSN (Data Service Names)
 
 * From **Start Menu** open 'odbc' either 64 or 32 bit depend on the device's configuration. (Can be checked by right-clicking on **My Computer**)
